@@ -1,21 +1,45 @@
 ## Specifications
 
-GameEngine (abstract)
-├── ChessEngine
-└── ChessMoveValidator
+```mermaid
+classDiagram
 
-Piece (abstract)
-├── Pawn
-├── Rook
-├── Knight
-├── Bishop
-├── Queen
-└── King
+class GameEngine {
+    <<abstract>>
+}
 
-GameState
-├── Board
-├── MoveHistory
-└── GameMetadata
+class ChessEngine
+class ChessMoveValidator
+
+GameEngine <|-- ChessEngine
+GameEngine <|-- ChessMoveValidator
+
+class Piece {
+    <<abstract>>
+}
+
+class Pawn
+class Rook
+class Knight
+class Bishop
+class Queen
+class King
+
+Piece <|-- Pawn
+Piece <|-- Rook
+Piece <|-- Knight
+Piece <|-- Bishop
+Piece <|-- Queen
+Piece <|-- King
+
+class GameState
+class Board
+class MoveHistory
+class GameMetadata
+
+GameState *-- Board
+GameState *-- MoveHistory
+GameState *-- GameMetadata
+```
 
 
 ### TR2: Socket Programming
